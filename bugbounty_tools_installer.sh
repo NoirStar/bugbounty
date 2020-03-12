@@ -98,3 +98,10 @@ pip install -r "$TOOLS"/XSStrike/requirements.txt;
 wget https://gist.github.com/jhaddix/86a06c5dc309d08580a018c66354a056/raw/96f4e51d96b2203f19f6381c8c545b278eaa0837/all.txt;
 wget https://github.com/assetnote/commonspeak2-wordlists/raw/master/subdomains/subdomains.txt;
 cat all.txt subdomains.txt | sort | uniq > all_commonspeak2.txt;
+
+#데이터 다운로드 
+
+mkdir -pv "$HOME"/bounty/tools/datafile;
+cd "$TOOLS"/datafile;
+wget https://raw.githubusercontent.com/BBerastegui/fresh-dns-servers/master/resolvers.txt;
+cp "$TOOLS"/Sublist3r/all_commonspeak2.txt "$TOOLS"/datafile/subdomains.txt
