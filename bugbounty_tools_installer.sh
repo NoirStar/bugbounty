@@ -102,6 +102,7 @@ cat all.txt subdomains.txt | sort | uniq > all_commonspeak2.txt;
 #데이터 다운로드 
 
 mkdir -pv "$HOME"/bounty/tools/datafile;
+mkdir -pv "$HOME"/bounty/result;
 cd "$TOOLS"/datafile;
 wget https://raw.githubusercontent.com/BBerastegui/fresh-dns-servers/master/resolvers.txt;
 cp "$TOOLS"/Sublist3r/all_commonspeak2.txt "$TOOLS"/datafile/subdomains.txt
