@@ -12,7 +12,9 @@ touch "$RESULT"/"$1"/ffuf_"$1".txt;
 
 for URI in `cat "$RESULT"/"$1"/final_"$1".txt`
 do
-    ffuf -w "$HOME"/bounty/tools/datafile/big.txt -u "$URI"/FUZZ -a "$RESULT"/"$1"/ffuf_"$1".txt -t 200
+    ffuf -w "$HOME"/bounty/tools/datafile/big.txt -u "$URI"/FUZZ -o "$RESULT"/"$1"/ffuf_"$URI".txt -t 200
 done
+
+cat "$RESULT"/"$1"/ffuf_*.txt | sort | uniq > ffuf_"$1".txt;
 
 
