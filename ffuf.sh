@@ -10,7 +10,7 @@ fi
 
 touch "$RESULT"/"$1"/ffuf_"$1".txt;
 
-for URI in `cat $1`
+for URI in `cat "$RESULT"/"$1"/final_"$1".txt`
 do
     ffuf -w "$HOME"/bounty/tools/datafile/big.txt -u "$URI"/FUZZ -a "$RESULT"/"$1"/ffuf_"$1".txt -t 200
 done
