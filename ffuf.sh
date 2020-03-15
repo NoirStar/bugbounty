@@ -8,13 +8,19 @@ if [ "$1" == "" ];then
         exit 0
 fi
 
-touch "$RESULT"/"$1"/ffuf_"$1".txt;
 
 for URI in `cat "$RESULT"/"$1"/final_"$1".txt`
 do
-    ffuf -w "$HOME"/bounty/tools/datafile/big.txt -u "$URI"/FUZZ -o "$RESULT"/"$1"/ffuf_"$URI".txt -t 200
+    ffuf -w "$HOME"/bounty/tools/datafile/big.txt -u "$URI"/FUZZ -mc 200 -o "$RESULT"/"$1"/ffuf_"$URI".json -t 200;
+    touch "$RESULT"/"$1"/ffuf_"$URI".txt;
+    for SUB in `jq -r ".results[].input[]" "$RESULT"/"$1"/ffuf_"$URI".json;`
+    do
+        "$URI"/"$SUB" >> "$RESULT"/"$1"/ffuf_"$URI".txt;
+    done
 done
 
+
+jq -r ".results[].input[]"
 cat "$RESULT"/"$1"/ffuf_*.txt | sort | uniq > ffuf_"$1".txt;
 
 

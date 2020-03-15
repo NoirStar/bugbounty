@@ -4,7 +4,7 @@ TOOLS="$HOME/bounty/tools";
 
 #기본환경 구성
 sudo apt-get update;
-sudo apt-get install unzip git gcc libpcap-dev wget curl nmap masscan nikto whatweb wafw00f chromium-browser python-pip python3-pip p7zip-full python-requests python-dnspython python-argparse apktool ruby-full build-essential zlib1g-dev openjdk-8-jre xfce4 xfce4-goodies tightvncserver firefox graphviz libgraphviz-dev -y;
+sudo apt-get install unzip jq git gcc libpcap-dev wget curl nmap masscan nikto whatweb wafw00f chromium-browser python-pip python3-pip p7zip-full python-requests python-dnspython python-argparse apktool ruby-full build-essential zlib1g-dev openjdk-8-jre xfce4 xfce4-goodies tightvncserver firefox graphviz libgraphviz-dev -y;
 
 mkdir -pv "$HOME"/bounty/tools;
 
