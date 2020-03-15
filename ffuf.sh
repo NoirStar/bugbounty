@@ -9,7 +9,7 @@ if [ "$1" == "" ];then
 fi
 
 
-for URI in `cat "$RESULT"/"$1"/final_"$1".txt`
+for URI in `cat "$RESULT"/"$1"/final_"$1".txt | sed 's/^.*:\/\///'`
 do
     ffuf -w "$HOME"/bounty/tools/datafile/big.txt -u "$URI"/FUZZ -mc 200 -o "$RESULT"/"$1"/ffuf_"$URI".json -t 200;
     touch "$RESULT"/"$1"/ffuf_"$URI".txt;
