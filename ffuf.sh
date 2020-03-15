@@ -19,7 +19,6 @@ do
     done
 done
 
+cat "$RESULT"/"$1"/ffuf_*.txt | sort | uniq > "$RESULT"/"$1"/final_ffuf_"$1".txt;
 rm "$RESULT"/"$1"/ffuf_*;
-cat "$RESULT"/"$1"/ffuf_*.txt | sort | uniq > final_ffuf_"$1".txt;
-
 
